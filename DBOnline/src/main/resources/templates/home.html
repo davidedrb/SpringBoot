@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>SQLite online</title>
+
+</head>
+
+<body>
+    <h1>Welcome to the connection frontend</h1>
+    <h2><span th:text="${giveName}"></span></h2>
+
+
+    <button id="showReparti" onclick="Reparti()"> premi per vedere i reparti</button>
+    <button id="cambia">cambia</button>
+
+    <div id="listaReparti" style="display: none"><h3>hello</h3></div>
+
+
+    <div th:if="${showUsers}">
+        <ul th:each="item: ${features}">
+            <li th:text="${item}"/>
+        </ul>
+    </div>
+
+
+
+    <div>
+        <select id="menu">
+            <option value="Seleziona un opzione">Seleziona un opzione</option>
+            <option value="Utente">Scegli utente</option>
+            <option value="Ufficio">Scegli un ufficio</option>
+            <option value="InserireUtente">Aggiungi un nuovo utente</option>
+            <option value="RimuoviUtente">Rimuovi Utente</option>
+        </select>
+
+        <p id="scelta"></p>
+
+        <input type="text" id="input" style="display: none; width: 300px" placeholder="">
+
+        <textarea id="utentetrovato" style="width: 400px; height: 100px "></textarea>
+
+        <input type="Text" id="userUpdate" placeholder="inserisci l'id dell'utente da modificare" style="width: 300px; display: none">
+
+    </div>
+    <script src="home.js"></script>
+</body>
+</html>
