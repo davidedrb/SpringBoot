@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrazione Utente</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+<h1>Registrazione Utente</h1>
+
+<div class="form-group">
+    <label for="name">Nome:</label>
+    <input type="text" id="name" required>
+</div>
+
+<div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+</div>
+
+<button onclick="saveUser()">Salva Utente</button>
+
+<h2>Cerca Utente</h2>
+<div class="form-group">
+    <label for="searchEmail">Email da cercare:</label>
+    <input type="email" id="searchEmail">
+</div>
+
+<button onclick="getUser()">Cerca Utente</button>
+
+<div id="result"></div>
+
+<script>
+    const API_URL = 'http://localhost:8080/api/users';
+
+    function displayResult(message, isError = false) {
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = message;
+        resultDiv.style.color = isError ? 'red' : 'green';
+    }
+
+    async function saveUser() {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+
+        if (!name || !email) {
+            displayResult('Inserisci nome e email', true);
+            return;
+        }
+
+        try {
+            const response = await fetch(API_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, email }),
+            });
+
+            if (!response.ok) {
+                throw new Error(`Errore HTTP: ${response.status}`);
+            }
+
+            const user = await response.json();
+            displayResult(`Utente salvato con successo! ID: ${user.id}, Nome: ${user.name}, Email: ${user.email}`);
+
+            // Pulisci i campi dopo il salvataggio
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+        } catch (error) {
+            displayResult(`Errore durante il salvataggio: ${error.message}`, true);
+            console.error('Errore:', error);
+        }
+    }
+
+    async function getUser() {
+        const email = document.getElementById('searchEmail').value;
+
+        if (!email) {
+            displayResult('Inserisci un email da cercare', true);
+            return;
+        }
+
+        try {
+            const response = await fetch(`${API_URL}/${encodeURIComponent(email)}`);
+
+            if (!response.ok) {
+                if (response.status === 404) {
+                    throw new Error('Utente non trovato');
+                }
+                throw new Error(`Errore HTTP: ${response.status}`);
+            }
+
+            const user = await response.json();
+            displayResult(`Utente trovato: ID: ${user.id}, Nome: ${user.name}, Email: ${user.email}`);
+        } catch (error) {
+            displayResult(`Errore nella ricerca: ${error.message}`, true);
+            console.error('Errore:', error);
+        }
+    }
+</script>
+</body>
+</html>
