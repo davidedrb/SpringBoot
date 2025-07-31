@@ -14,8 +14,6 @@ export async function loadAndRenderRepartiByNome(nome) {
     }
 }
 
-
-
 function renderReparti(reparti) {
     const container = document.getElementById('reparti-list');
     container.innerHTML = '';
@@ -25,17 +23,21 @@ function renderReparti(reparti) {
         return;
     }
 
-    reparti.forEach(reparto => {
-        // Controllo per oggetti vuoti o dati mancanti
-        if (!reparto || Object.keys(reparto).length === 0) return;
+    reparti.forEach(riga => {
+        if (!riga || riga.length === 0) return;
+
+        const [stanza,piano,orario,nome, cognome, email] = riga;
 
         const card = document.createElement('div');
         card.className = 'card';
         card.innerHTML = `
-            <h3>Stanza: ${reparto.stanza || 'Non specificata'}</h3>
-            <p>Piano: ${reparto.piano !== undefined ? reparto.piano : 'Non specificato'}</p>
-            <p>Orario: ${reparto.orario || 'Non specificato'}</p>
-        `;
+        <h3>Stanza: ${stanza || 'Non specificata'}</h3>
+        <p>Piano: ${piano ?? 'Non specificato'}</p>
+        <p>Orario: ${orario || 'Non specificato'}</p>
+        <p>Nome: ${nome || 'Non specificato'}</p>
+        <p>Cognome: ${cognome || 'Non specificato'}</p>
+        <p>Email: ${email || 'Non specificato'}</p>
+    `;
         container.appendChild(card);
     });
 }

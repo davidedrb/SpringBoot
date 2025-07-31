@@ -20,10 +20,42 @@
         <option value="opzione6">Modifica Ufficio</option>
     </select>
 
+    <div>
+
+
+
+        <input type="text" placeholder="" id="stanza" style="display: none; max-width: 1200px;">
+
+        <input type="text" placeholder="" id="nome" style="display: none; max-width: 1200px;">
+        <input type="text" placeholder="" id="cognome" style="display: none; max-width: 1200px;">
+        <input type="text" placeholder="" id="email" style="display: none; max-width: 1200px;">
+
+
+        <input type="text" placeholder="" id="idUser" style="display: none; max-width: 1200px;">
+        <input type="text" placeholder="" id="modificaUser" style="display: none; max-width: 1200px;">
+        <input type="text" placeholder="" id="data" style="display: none; max-width: 1200px;">
+
+        <select id="menuColonne" style="display: none">
+            <option value="">-- Seleziona un'opzione --</option>
+            <option value="opzione1">Nome</option>
+            <option value="opzione2">Cognome</option>
+            <option value="opzione3">Email</option>
+            <option value="opzione4">ufficio</option>
+        </select>
+
+
+    </div>
+
+
+    <div>
+
+    </div>
+
     <div class="sections">
-        <input type="text" placeholder="" id="insertData" style="display: none; max-width: 1200px;">
+
+
         <section id="reparti-section" STYLE="display: none">
-            <h2>Reparti</h2>
+            <h2 id="titolo">Reparti</h2>
             <div id="reparti-list" class="card-container"></div>
         </section>
 
@@ -31,6 +63,16 @@
             <h2>Utenti</h2>
             <div id="utenti-list" class="card-container"></div>
         </section>
+
+        <section id="aggiungi-utente-section" style="display: none">
+            <h2>Aggiungi utenti</h2>
+            <div id="aggiungi-utente-list" class="card-container"></div>
+        </section>
+
+        <select id="modifica-utente-section" style="display: none">
+            <h2>Modifica utenti </h2>
+            <div id="modifica-utente-list" class="card-container"></div>
+        </select>
 
 
     </div>

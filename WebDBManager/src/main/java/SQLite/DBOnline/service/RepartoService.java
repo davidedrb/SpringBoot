@@ -1,5 +1,4 @@
 package SQLite.DBOnline.service;
-import SQLite.DBOnline.dto.RepartoUtenteView;
 import SQLite.DBOnline.model.Reparto;
 import SQLite.DBOnline.repository.RepartoRepository;
 import org.springframework.stereotype.Service;
@@ -14,12 +13,12 @@ public class RepartoService {
         this.repartoRepository = repartoRepository;
     }
 
-    public List<Reparto> getReparti(String stanza) {
+    /*public List<Reparto> getReparti(String stanza) {
         return repartoRepository.findByStanza(stanza);
-    }
+    }*/
 
-    public List<RepartoUtenteView> getUtentiPerStanza(String stanza) {
-        return repartoRepository.findUtentiPerStanza(stanza);
+    public List<Object[]> findUtentiInStanza(String stanza) {
+        return repartoRepository.findUtentiInStanza(stanza);
     }
 
 }

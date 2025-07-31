@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Utente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @Column(nullable = false)
     private String nome;
@@ -18,6 +18,10 @@ public class Utente {
     @Column(nullable = false, unique = true)
     private String email;
 
+
+
+
+
     @ManyToOne
     @JoinColumn(name = "reparto_id", nullable = false)
     private Reparto reparto;
@@ -25,11 +29,11 @@ public class Utente {
     // Getter, Setter, Costruttori
 
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -64,6 +68,8 @@ public class Utente {
     public void setReparto(Reparto reparto) {
         this.reparto = reparto;
     }
+
+
 
     @Override
     public String toString() {

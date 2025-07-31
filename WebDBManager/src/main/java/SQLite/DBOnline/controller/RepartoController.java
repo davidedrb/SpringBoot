@@ -16,13 +16,13 @@ public class RepartoController {
     @Autowired
     private RepartoService repartoService;
 
-    @GetMapping("/nome")
+    /*@GetMapping("/nome")
     public List<Reparto> getAllReparti(@RequestParam String stanza) {
         return repartoService.getReparti(stanza);
-    }
+    }*/
 
     @GetMapping("/UtentiReparti")
-    public List<Reparto> getUtentiReparti(@RequestParam String stanza) {
-        return repartoService.getReparti(stanza);
+    public List<Object[]> findUtentiByStanza(@RequestParam String stanza) {
+        return repartoService.findUtentiInStanza(stanza);
     }
 }

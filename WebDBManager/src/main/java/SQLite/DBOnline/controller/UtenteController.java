@@ -4,10 +4,8 @@ package SQLite.DBOnline.controller;
 import SQLite.DBOnline.model.Utente;
 import SQLite.DBOnline.service.UtenteService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -21,8 +19,18 @@ public class UtenteController {
         return utenteService.getAllUtenti();
     }
 
-    @GetMapping("/reparto/{repartoId}")
-    public List<Utente> getUtentiByReparto(@PathVariable Long repartoId) {
-        return utenteService.getUtentiByReparto(repartoId);
+    @GetMapping("/id")
+    public List<Utente> getUtentiByReparto(@RequestParam String nome, @RequestParam String cognome) {
+        return utenteService.findByNomeAndCognome(nome, cognome);
+    }
+
+    @GetMapping("/addUser")
+    public String addUser(@RequestParam String nome, @RequestParam String cognome, @RequestParam String email, @RequestParam String stanza) {
+        return utenteService.addUser(nome, cognome,email,stanza);
+    }
+
+    @GetMapping("/modUser")
+    public String modUser(@RequestParam Integer id, @RequestParam String colonna, @RequestParam String data) {
+        return utenteService.modUser(id, colonna, data);
     }
 }

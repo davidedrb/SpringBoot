@@ -7,10 +7,10 @@ import javax.persistence.*;
 public class Reparto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @Column(nullable = false)
-    private Integer piano;
+    private int piano;
 
     @Column(nullable = false)
     private String stanza;
@@ -21,11 +21,11 @@ public class Reparto {
     // Getter, Setter, Costruttori
 
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
