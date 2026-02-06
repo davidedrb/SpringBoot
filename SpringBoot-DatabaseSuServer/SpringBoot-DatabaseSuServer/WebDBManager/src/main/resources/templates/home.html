@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestione Ospedale Pro</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Dashboard Ospedale</h1>
+
+    <div class="form-group">
+        <label for="mainAction">Scegli Operazione</label>
+        <select id="mainAction">
+            <option value="">-- Seleziona --</option>
+            <option value="search_user">Cerca Utente (Dati Sensibili)</option>
+            <option value="search_office">Cerca per Ufficio (Link Pubblico)</option>
+            <option value="add">Aggiungi Utente</option>
+            <option value="edit">Modifica Utente</option>
+        </select>
+    </div>
+
+    <div id="dynamicForm"></div>
+    <div id="feedback" class="feedback"></div>
+    <div id="results" class="card-container"></div>
+</div>
+
+<script type="module" src="/main.js"></script>
+</body>
+</html>
