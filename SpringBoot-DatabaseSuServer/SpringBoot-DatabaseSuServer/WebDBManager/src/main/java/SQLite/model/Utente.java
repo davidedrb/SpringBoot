@@ -1,4 +1,4 @@
-package SQLite.DBOnline.model;
+package SQLite.model;
 
 import javax.persistence.*;
 

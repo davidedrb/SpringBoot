@@ -1,6 +1,6 @@
-package SQLite.DBOnline.service;
-import SQLite.DBOnline.model.Reparto;
-import SQLite.DBOnline.repository.RepartoRepository;
+package SQLite.service;
+import SQLite.model.Reparto;
+import SQLite.repository.RepartoRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
 

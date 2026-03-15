@@ -1,9 +1,9 @@
-package SQLite.DBOnline.service;
+package SQLite.service;
 
-import SQLite.DBOnline.model.Utente;
-import SQLite.DBOnline.model.Reparto;
-import SQLite.DBOnline.repository.RepartoRepository;
-import SQLite.DBOnline.repository.UtenteRepository;
+import SQLite.model.Utente;
+import SQLite.model.Reparto;
+import SQLite.repository.RepartoRepository;
+import SQLite.repository.UtenteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

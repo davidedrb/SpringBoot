@@ -35,10 +35,10 @@
 //    }
 //}
 
-package SQLite.DBOnline.controller;
+package SQLite.controller;
 
-import SQLite.DBOnline.model.Utente;
-import SQLite.DBOnline.service.UtenteService;
+import SQLite.model.Utente;
+import SQLite.service.UtenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,7 +1,7 @@
-package SQLite.DBOnline.repository;
+package SQLite.repository;
 
 
-import SQLite.DBOnline.model.Reparto;
+import SQLite.model.Reparto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

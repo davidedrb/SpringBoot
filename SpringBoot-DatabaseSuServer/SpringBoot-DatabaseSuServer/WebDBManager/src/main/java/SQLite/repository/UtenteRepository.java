@@ -1,6 +1,6 @@
-package SQLite.DBOnline.repository;
+package SQLite.repository;
 
-import SQLite.DBOnline.model.Utente;
+import SQLite.model.Utente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
